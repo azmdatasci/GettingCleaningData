@@ -2,6 +2,7 @@ Getting and Cleaning Data
 =========================
 
 Peer Reviewed Assignment
+------------------------
 
 The assignment consists in tidying a dataset. The provided data are collected 
 from the accelerometers from the Samsung Galaxy S smartphone. A full description 
