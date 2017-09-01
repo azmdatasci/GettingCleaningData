@@ -1,5 +1,5 @@
 Getting and Cleaning Data: Peer Reviewed Assignment 
-=========================  ------------------------
+===================================================
 
 Peer Reviewed Assignment
 ------------------------
