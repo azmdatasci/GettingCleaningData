@@ -6,6 +6,7 @@ tAcc-XYZ and tGyro-XYZ. The signals were captured at
 a constant rate of 50 Hz and they were filtered using a median filter and low pass 
 filter to remove noise. The acceleration signal was separated into body and gravity 
 acceleration signals: 
+
 tBodyAcc-XYZ -> TimeBodyAcceleration-XYZ (in the tidy data set)
 tGravityAcc-XYZ -> Time GravityAcceleration-XYZ
 Another low pass filter was used here (for more details about the filtering process 
