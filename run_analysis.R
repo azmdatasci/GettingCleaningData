@@ -60,7 +60,6 @@ activitylabel <- gsub("_","", activitylabel)
 featuresselect <- gsub("-|\\(|\\)","",featuresselect)
 #Remove single t and b letters at the beginning of the name
 featuresselect <- gsub("^t|^f","",featuresselect)
-print(featuresselect)
 #
 featuresselect <- gsub("Acc","Acceleration",featuresselect)
 featuresselect <- gsub("acc","acceleration",featuresselect)
