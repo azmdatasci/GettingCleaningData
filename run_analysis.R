@@ -59,7 +59,8 @@ activitylabel <- gsub("_","", activitylabel)
 #Remove dashes and parenthesis marks
 featuresselect <- gsub("-|\\(|\\)","",featuresselect)
 #Remove single t and b letters at the beginning of the name
-featuresselect <- gsub("^t|^f","",featuresselect)
+featuresselect <- gsub("^t","Time",featuresselect)
+featuresselect <- gsub("^f","FFT",featuresselect)
 #
 featuresselect <- gsub("Acc","Acceleration",featuresselect)
 featuresselect <- gsub("acc","acceleration",featuresselect)
@@ -75,13 +76,21 @@ colnames(selected) <- featuresselect
 #A column with the activity name is added to the data frame
 selected$activityname <- activitylabel[fullactivity[,1]]
 
-
 #----------------------------------------------------------
-#Average of each magnitude grouped by activity type
-selectedmeans <- aggregate(. ~ activityname, selected, mean)
 
-#Add descriptive rownames
-rownames(selectedmeans) <- selectedmeans$activityname
-selectedmeans <- selectedmeans[,-which(names(selectedmeans) 
-		%in% c("activityname"))]
+#Read the subject numbers and store them in data tables
+testsubjects <- read.table("UCI HAR Dataset/test/subject_test.txt")
+trainsubjects <- read.table("UCI HAR Dataset/train/subject_train.txt")
+
+#Merge the subject numbers
+subjects <- rbind(trainsubjects,testsubjects)
+
+#Append the subjects list to the data set
+selected$subjects <- subjects[,1]
+
+#Average of each magnitude grouped by activity type
+selectedmeans <- aggregate(. ~ subjects + activityname, selected, FUN=mean)
+
+write.table(selectedmeans, file="tidydataset.csv", quote=FALSE,
+		sep=",", row.names=FALSE)
 
