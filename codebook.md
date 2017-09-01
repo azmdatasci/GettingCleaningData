@@ -1,3 +1,5 @@
+Description of the magnitudes
+=============================
 
 The assignment uses data from the accelerometer and gyroscope 3-axial raw signals
 tAcc-XYZ and tGyro-XYZ. The signals were captured at 
